@@ -13,7 +13,7 @@ import edu.wpi.first.wpilibj2.command.SubsystemBase;
  * A subsystem representing the drivetrain of the robot.
  * 
  * The drivetrain has 6 wheels, 3 on each side, with the back 2
- * controlled with Talons.
+ * controlled with PWM Talon motor controllers.
  */
 public final class Drivetrain extends SubsystemBase {
 
@@ -41,13 +41,18 @@ public final class Drivetrain extends SubsystemBase {
 
   /**
    * Drive the robot, arcade style.
-   * @param forwardSpeed
-   * @param turnSpeed
+   * @param forwardSpeed Speed at which to move forward. Negative values indicate backward movement.
+   * @param turnSpeed Speed at which to turn. Positive is clockwise.
    */
   public void driveArcadeStyle(double forwardSpeed, double turnSpeed) {
     differentialDrive.arcadeDrive(forwardSpeed, turnSpeed);  // TODO: Check whether the API is busted
   }
 
+  /**
+   * Drive the robot, tank style.
+   * @param leftSpeed Speed at which to move forward on the left side. Negative values indicate backward movement.
+   * @param rightSpeed Speed at which to move forward on the right side. Negative values indicate backward movement.
+   */
   public void driveTankStyle(double leftSpeed, double rightSpeed) {
     differentialDrive.tankDrive(leftSpeed, rightSpeed);
   }
