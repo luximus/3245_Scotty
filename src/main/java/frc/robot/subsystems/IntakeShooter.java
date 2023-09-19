@@ -11,8 +11,6 @@ import edu.wpi.first.wpilibj2.command.SubsystemBase;
  */
 public class IntakeShooter extends SubsystemBase {
 
-  // Use edu.wpi.first.wpilibj.DigitalInput for limit switches.
-
   /** Creates a new IntakeShooter. */
   public IntakeShooter() {}
 
