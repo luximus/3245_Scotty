@@ -30,6 +30,7 @@ public final class RobotContainer {
   private static final double SLOW_DRIVE_SPEED = 0.4;
   private static final double FAST_DRIVE_SPEED = 0.8;
 
+  private static final double INTAKE_RUN_SPEED = 0.5;
   private static final double INTAKE_UP_SPEED = 0.5;
   private static final double INTAKE_DOWN_SPEED = 0.5;
 
@@ -53,7 +54,7 @@ public final class RobotContainer {
 
     fastButton.whileTrue(getDriveCommand(FAST_DRIVE_SPEED));
     slowButton.whileTrue(getDriveCommand(SLOW_DRIVE_SPEED));
-    intakeButton.whileTrue(new RunIntakeShooter(intakeShooter));
+    intakeButton.whileTrue(new RunIntakeShooter(intakeShooter, INTAKE_RUN_SPEED));
     wristExtensionButton.whileTrue(new MoveWristManually(wristJoint, INTAKE_UP_SPEED));
     wristFlexionButton.whileTrue(new MoveWristManually(wristJoint, -INTAKE_DOWN_SPEED));
   }

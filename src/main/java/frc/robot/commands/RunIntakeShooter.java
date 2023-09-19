@@ -12,14 +12,8 @@ import frc.robot.subsystems.IntakeShooter;
  */
 public class RunIntakeShooter extends CommandBase {
 
-  private static final double DEFAULT_SPEED = 0.5;
-
   private IntakeShooter intakeShooter;
   private double speed;
-
-  public RunIntakeShooter(IntakeShooter intakeShooter) {
-    this(intakeShooter, DEFAULT_SPEED);
-  }
 
   /** Creates a new RunIntakeShooter. */
   public RunIntakeShooter(IntakeShooter intakeShooter, double speed) {
