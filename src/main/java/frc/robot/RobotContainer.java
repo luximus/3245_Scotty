@@ -9,7 +9,9 @@ import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.Commands;
 import edu.wpi.first.wpilibj2.command.button.JoystickButton;
 import frc.robot.commands.DriveTankStyleWithMultiplier;
+import frc.robot.commands.RunIntakeShooter;
 import frc.robot.subsystems.Drivetrain;
+import frc.robot.subsystems.IntakeShooter;
 
 public final class RobotContainer {
 
@@ -18,12 +20,14 @@ public final class RobotContainer {
   private static final XboxController.Axis DRIVER_RIGHT_AXIS = XboxController.Axis.kRightTrigger;
   private static final XboxController.Button DRIVER_SLOW_SPEED_BUTTON = XboxController.Button.kLeftBumper;
   private static final XboxController.Button DRIVER_FAST_SPEED_BUTTON = XboxController.Button.kRightBumper;
+  private static final XboxController.Button RUN_INTAKE_BUTTON = XboxController.Button.kA;
 
   private static final double NORMAL_DRIVE_SPEED = 0.6;
   private static final double SLOW_DRIVE_SPEED = 0.4;
   private static final double FAST_DRIVE_SPEED = 0.8;
 
   private Drivetrain drivetrain = new Drivetrain();
+  private IntakeShooter intakeShooter = new IntakeShooter();
   private XboxController driverController = new XboxController(DRIVER_CONTROLLER_PORT);
 
   public RobotContainer() {
@@ -35,9 +39,11 @@ public final class RobotContainer {
   private void configureBindings() {
    var slowButton = new JoystickButton(driverController, DRIVER_SLOW_SPEED_BUTTON.value);
    var fastButton = new JoystickButton(driverController, DRIVER_FAST_SPEED_BUTTON.value);
+   var intakeButton = new JoystickButton(driverController, RUN_INTAKE_BUTTON.value);
 
    fastButton.whileTrue(getDriveCommand(FAST_DRIVE_SPEED));
    slowButton.whileTrue(getDriveCommand(SLOW_DRIVE_SPEED));
+   intakeButton.whileTrue(new RunIntakeShooter(intakeShooter));
   }
 
   public Command getAutonomousCommand() {
