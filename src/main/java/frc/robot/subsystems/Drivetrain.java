@@ -57,4 +57,11 @@ public final class Drivetrain extends SubsystemBase {
     differentialDrive.tankDrive(leftSpeed, rightSpeed);
   }
 
+  /**
+   * Stop the robot from moving.
+   */
+  public void stop() {
+    differentialDrive.tankDrive(0, 0);
+  }
+
 }

@@ -30,4 +30,11 @@ public class IntakeShooter extends SubsystemBase {
     // TODO: Implement intake/shooter running
   }
 
+  /**
+   * Stop the intake/shooter.
+   */
+  public void stop() {
+    // TODO: Implement intake/shooter stopping
+  }
+
 }
