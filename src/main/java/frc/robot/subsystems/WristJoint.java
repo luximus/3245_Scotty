@@ -11,13 +11,13 @@ import edu.wpi.first.wpilibj2.command.SubsystemBase;
 /**
  * The wrist joint of the intake/shooter.
  */
-public class WristJoint extends SubsystemBase {
+public final class WristJoint extends SubsystemBase {
 
   private static final int MOTOR_ID = 5;
   private static final int UPPER_LIMIT_SWITCH_ID = 0;
 
-  Talon motor = new Talon(MOTOR_ID);
-  DigitalInput upperLimitSwitch = new DigitalInput(UPPER_LIMIT_SWITCH_ID);
+  private Talon motor = new Talon(MOTOR_ID);
+  private DigitalInput upperLimitSwitch = new DigitalInput(UPPER_LIMIT_SWITCH_ID);
 
   /** Creates a new WristJoint. */
   public WristJoint() {}
